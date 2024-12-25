@@ -9,7 +9,7 @@ import tensorflow_datasets as tfds
 def prepare_data(dataset):
   images, labels = [], []
   for image, label in dataset.as_numpy_iterator():
-    image, label = np.array(image) / 255.0, np.eye(10)[label]  # Normalize the image and one-hot encode the label
+    image = np.array(image) / 255.0 # Normalize the image
     image = np.array(image)  # Ensure image is a numpy array
     image = image.reshape(-1)  # Reshape to (28, 28, 1)
     images.append(image)
